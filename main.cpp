@@ -1,4 +1,4 @@
-// wl-wheel-scroll — circular rim scrolling daemon for Wayland touchpads.
+// wheel-scroll — circular rim scrolling daemon for touchpads.
 // Move your finger around the edge of the pad to scroll.
 
 #include <libevdev/libevdev-uinput.h>
@@ -294,7 +294,7 @@ int run(struct libevdev *dev, const std::string &path) {
 
     // Virtual touchpad clone: same name change + all capabilities of `dev`.
     // Input properties are what make libinput classify this as a touchpad.
-    libevdev_set_name(dev, "wl-wheel-scroll-tp");
+    libevdev_set_name(dev, "wheel-scroll-tp");
     struct libevdev_uinput *tp_ui = nullptr;
     if (libevdev_uinput_create_from_device(dev, LIBEVDEV_UINPUT_OPEN_MANAGED, &tp_ui) < 0) {
         fprintf(stderr, "ERROR: could not create virtual touchpad.\n");
@@ -303,7 +303,7 @@ int run(struct libevdev *dev, const std::string &path) {
 
     // Separate node so libinput doesn't ignore REL_WHEEL coming from a touchpad.
     struct libevdev *scroll_dev = libevdev_new();
-    libevdev_set_name(scroll_dev, "wl-wheel-scroll");
+    libevdev_set_name(scroll_dev, "wheel-scroll");
     libevdev_enable_event_type(scroll_dev, EV_REL);
     libevdev_enable_event_code(scroll_dev, EV_REL, REL_WHEEL, nullptr);
     libevdev_enable_event_code(scroll_dev, EV_REL, REL_WHEEL_HI_RES, nullptr);
@@ -362,7 +362,7 @@ int main(int argc, char **argv) {
     } else if (auto found = find_touchpad()) {
         path = *found;
     } else {
-        fprintf(stderr, "Could not auto-detect touchpad.\nRun:  libinput list-devices\nThen: wl-wheel-scroll /dev/input/eventX\n");
+        fprintf(stderr, "Could not auto-detect touchpad.\nRun:  libinput list-devices\nThen: wheel-scroll /dev/input/eventX\n");
         return 1;
     }
 

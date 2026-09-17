@@ -1,6 +1,6 @@
-# wl-wheel-scroll
+# wheel-scroll
 
-Circular rim scrolling daemon for Wayland touchpads. Move your finger around the edge of the pad to scroll.
+Circular rim scrolling daemon for touchpads. Move your finger around the edge of the pad to scroll.
 
 Built for the Panasonic Let's Note wheel pad but works on any touchpad with a circular rim zone.
 

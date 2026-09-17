@@ -1,4 +1,4 @@
-project('wl-wheel-scroll', 'cpp',
+project('wheel-scroll', 'cpp',
   version : '0.3.0',
   license : 'MIT',
   default_options : [
@@ -10,7 +10,7 @@ project('wl-wheel-scroll', 'cpp',
 
 libevdev_dep = dependency('libevdev')
 
-executable('wl-wheel-scroll', 'main.cpp',
+executable('wheel-scroll', 'main.cpp',
   dependencies : [libevdev_dep],
   install : true,
   install_dir : get_option('bindir'),

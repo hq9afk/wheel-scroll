@@ -1,10 +1,10 @@
 [Unit]
-Description=Circular rim scrolling daemon for Wayland touchpads
+Description=Circular rim scrolling daemon for touchpads
 Documentation=https://github.com/hq9afk/wl-wheel-scroll
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/wl-wheel-scroll
+ExecStart=/usr/bin/wheel-scroll
 Restart=on-failure
 RestartSec=3
 
